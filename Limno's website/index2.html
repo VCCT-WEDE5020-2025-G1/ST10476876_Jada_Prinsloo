@@ -1,0 +1,129 @@
+import React, { useState } from "react";
+
+const PRODUCTS = [
+  { id: 1, name: "Almond Croissant", description: "Flaky, buttery croissant with almond filling.", price: "R28" },
+  { id: 2, name: "Chocolate Muffin", description: "Rich chocolate muffin with crunchy top.", price: "R22" },
+  { id: 3, name: "Sourdough Loaf", description: "Slow-fermented crusty sourdough (750g).", price: "R45" },
+  { id: 4, name: "Blueberry Tart", description: "Sweet-tart blueberry filling in a buttery shell.", price: "R30" },
+  { id: 5, name: "Cinnamon Roll", description: "Sticky cinnamon swirl with cream cheese glaze.", price: "R25" },
+  { id: 6, name: "Banana Bread", description: "Moist banana bread with toasted walnuts.", price: "R24" }
+];
+
+export default function LimnosBakedGoods() {
+  const [selected, setSelected] = useState(null);
+  const [cart, setCart] = useState([]);
+
+  function addToCart(product) {
+    setCart((c) => [...c, product]);
+  }
+
+  return 
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      {/* Header */}
+      <header className="bg-white shadow">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="text-2xl font-extrabold tracking-wide">LIMNOS<span className="block text-sm font-medium">BAKERY</span></div>
+            <nav className="hidden md:flex gap-6 ml-6 text-sm">
+              <a href="#" className="hover:underline">Home</a>
+              <a href="#" className="hover:underline">About</a>
+              <a href="#bakedgoods" className="hover:underline font-semibold">Baked Goods</a>
+            </nav>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <button className="hidden sm:inline-block px-4 py-2 border rounded-md">Shop</button>
+            <button
+              aria-label="View cart"
+              className="px-3 py-2 rounded-md bg-primary-600 text-white"
+              onClick={() => alert(`Cart has ${cart.length} item(s)`)}
+            >
+              Cart ({cart.length})
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero / Title */}
+      <main className="max-w-6xl mx-auto px-6 py-10" id="bakedgoods">
+        <section className="mb-8">
+          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Baked Goods</h1>
+          <p className="mt-3 text-lg text-gray-600">Delicious pastries and breads — baked fresh daily.</p>
+        </section>
+
+        {/* Product grid */}
+        <section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PRODUCTS.map((p) => (
+              <article key={p.id} className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                <button
+                  onClick={() => setSelected(p)}
+                  className="w-full text-left focus:outline-none"
+                  aria-label={`Open ${p.name}`}
+                >
+                  <div className="aspect-w-4 aspect-h-3 bg-gray-100 flex items-center justify-center">
+                    {/* Simple SVG placeholder image */}
+                    <svg width="180" height="130" viewBox="0 0 180 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image placeholder">
+                      <rect width="180" height="130" fill="#f3f4f6" />
+                      <g fill="#e5e7eb">
+                        <rect x="12" y="12" width="156" height="106" rx="6" />
+                      </g>
+                      <text x="50%" y="60%" dominantBaseline="middle" textAnchor="middle" fontSize="12" fill="#9ca3af">Image</text>
+                    </svg>
+                  </div>
+
+                  <div className="p-5">
+                    <h3 className="text-xl font-semibold">{p.name}</h3>
+                    <p className="mt-2 text-gray-600">{p.description}</p>
+                  </div>
+                </button>
+
+                <div className="px-5 py-3 border-t flex items-center justify-between">
+                  <span className="font-medium">{p.price}</span>
+                  <button
+                    onClick={() => addToCart(p)
+                    className="px-3 py-1 rounded-md border hover:bg-gray-100"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </article>
+          </div>
+        </section>
+
+        {/* Footer-ish note */}
+        <section className="mt-10 text-sm text-gray-500">All items are subject to availability and may vary seasonally.</section>
+      </main>
+
+      {/* Modal for product details */}
+      {selected && 
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setSelected(null)}></div>
+          <div className="relative bg-white rounded-2xl shadow-xl max-w-lg w-full overflow-hidden">
+            <div className="p-6">
+              <h2 className="text-2xl font-bold">{selected.name}</h2>
+              <p className="mt-3 text-gray-700">{selected.description}</p>
+              <p className="mt-4 font-semibold">Price: {selected.price}</p>
+
+              <div className="mt-6 flex gap-3 justify-end">
+                <button className="px-4 py-2 rounded-md border" onClick={() => setSelected(null)}>Close</button>
+                <button
+                  className="px-4 py-2 rounded-md bg-primary-600 text-white"
+                  onClick={() => {
+                    addToCart(selected);
+                    setSelected(null);
+                  }
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <footer className="mt-16 py-8 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-sm text-gray-600">© {new Date().getFullYear()} Limnos Bakery — Freshly baked daily.</div>
+      </footer>
+    </div>
+  
