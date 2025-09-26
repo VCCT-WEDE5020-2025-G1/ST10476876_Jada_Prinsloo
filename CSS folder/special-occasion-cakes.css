@@ -1,0 +1,108 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #FFC0CB; /* light pink */
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #FF69B4; /* hot pink */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: #FFA6C9;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #ddd;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Sections */
+.section {
+    text-align: center;
+    padding: 20px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    color: #FF69B4;
+    font-size: 1.8em;
+}
+
+/* Cakes Grid */
+.cakes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap; /* makes it responsive */
+}
+
+/* Cake Card */
+.cake {
+    text-align: center;
+    max-width: 300px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cake:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.placeholder {
+    background-color: #FF8E8E;
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Button */
+button {
+    background-color: #FF69B4;
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff4d94;
+}
+
