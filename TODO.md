@@ -15,3 +15,5 @@ in special occasiona cakes
 Find a hero banner
 
 Add references to readme
+1. Limnos
+2. W3schools
