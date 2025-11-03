@@ -6,21 +6,38 @@ My website is a revamped version of the Limno's bakery website. Limnos is a Sout
 
 ## Changelog  
 POE Part 1:
-- 
-- 
+- The foundation of the app so basic coding
+- make sure everything is working 
 
 POE Part 1 Updates:
-- 
-- 
+- Add pictures for the navigation bars
 
 POE Part 2:
-- 
-- 
+- The CSS design for the website meaning the font sizes and backgrouund 
+- Making sure the field sizes are correct and displaying properly
 
 POE Part 2 Updates:
-- 
-- 
+- Find a hero banner
+- Fix nav bar on all pages so they are identical Make sure nav css classes are the same everywhere.
 
+POE Part 3 Updates:
+In breads.html:
+
+find images for all breads
+update src="src/img/whatever_bread.jpg"
+In cookies.html:
+
+find images for shortbread, snickerdoodle
+update src="src/img/cookie_name.jpg"
+
+in special occasiona cakes
+
+Find birthday cake photo and update reference
+
+Add references to readme
+
+Limnos
+W3schools
 
 ## Screenshots
 
